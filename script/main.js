@@ -6,6 +6,7 @@
 
 // chiedere all’utente il cognome +array dati
 var btnSubmit = document.getElementById('btn-submit');
+var listsurname = document.getElementById('surnamelist');
 var surnameList = ['Bianchi', 'Rossi', 'Duzioni', 'Balsano', 'Verdi'];
 
 btnSubmit.addEventListener('click',
@@ -26,6 +27,15 @@ btnSubmit.addEventListener('click',
         } else {
             console.error('Cognome gia esistente con ordine ', order + 1);
         }
-              
+
+        var items = '';
+        for (var i = 0; i < surnameList.length; i++) {
+
+            items += '<li>' + surnameList[i] + '</li>';
+
+        }
+
+        listsurname.innerHTML = items + 'L\'ordine del tuo cognome è:' + (surnameList.indexOf(addName) + 1)
+                      
     }
 )
