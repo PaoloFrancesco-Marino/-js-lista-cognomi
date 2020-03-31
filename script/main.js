@@ -8,6 +8,7 @@
 var btnSubmit = document.getElementById('btn-submit');
 var listsurname = document.getElementById('surnamelist');
 var surnameList = ['Bianchi', 'Rossi', 'Duzioni', 'Balsano', 'Verdi'];
+var message = document.getElementById('verifica');
 
 btnSubmit.addEventListener('click',
     function() {
@@ -22,9 +23,10 @@ btnSubmit.addEventListener('click',
             // ordine alfabetico
             surnameList.sort();
             console.log(surnameList);
-            // scrivi anche la posizione della lista in cui il nuovo utente si trova
+            message.innerHTML = 'Nuovo Cognome aggiunto';
             console.log('Nuovo Cognome aggiunto', );
         } else {
+            message.innerHTML = 'Cognome gia esistente';
             console.error('Cognome gia esistente con ordine ', order + 1);
         }
 
@@ -34,8 +36,8 @@ btnSubmit.addEventListener('click',
             items += '<li>' + surnameList[i] + '</li>';
 
         }
-
+        // scrivi anche la posizione della lista in cui il cognome si trova
         listsurname.innerHTML = items + 'L\'ordine del tuo cognome è:' + (surnameList.indexOf(addName) + 1)
-                      
+
     }
 )
